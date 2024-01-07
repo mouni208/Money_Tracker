@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Money Tracker - Sign Up</title>
+  <link rel="stylesheet" href="./signup.css">
+ 
+</head>
+
+<body>
+
+    <main>
+        <h1>Sign Up for Your Money Tracker</h1>
+        <form action="/signup" method="post" id="signup-form">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+    
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+    
+          <label for="full-name">Full Name:</label>
+          <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+    
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter your phone number" required>
+    
+          <label for="birthdate">Date of Birth:</label>
+          <input type="date" id="birthdate" name="birthdate" required>
+    
+          <button type="submit">Sign Up</button>
+        </form>
+    
+        <p>Already have an account? <a href="#">Log in</a></p>
+      </main>
+      <script defer src="./signup.js"></script>
+
+</body>
+
+</html>

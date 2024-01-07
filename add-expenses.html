@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expense</title>
+    <link rel="stylesheet" href="add-expenses.css">
+</head>
+<body>
+    <h1>Add Expense</h1>
+    <form id="expenseForm">
+        <label for="expenseType">Expense Type:</label>
+        <input type="text" id="expenseType" name="expenseType" required><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" required><br>
+
+        <button type="button" onclick="addExpense()">Submit</button>
+    </form>
+
+    <script>
+        function addExpense() {
+            const expenseType = document.getElementById('expenseType').value;
+            const amount = document.getElementById('amount').value;
+
+            // Send a POST request to your /add-expense route with the expense details
+            fetch('/add-expense', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ expenseType, amount }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                // Redirect to the dashboard after adding the expense
+                window.location.href = '/dashboard';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while adding the expense.');
+            });
+        }
+    </script>
+</body>
+</html>
